@@ -73,11 +73,13 @@ const slider=(key,label,icon,min,max,suffix='',help=null)=>h('div',{className:'f
 const section=(label,icon,...children)=>h('div',{className:'control-section'},h('div',{className:'section-label'},h(Icon,{name:icon,size:12}),label),...children);
 const openGuide=()=>antd.Modal.info({
   title:'从照片到字母视觉',
-  content:h('div',null,
-    h('p',null,'1. 上传一张 JPG、PNG 或 WebP 照片。'),
-    h('p',null,'2. 明暗自动映射为字母 E 的笔画粗细。调节密度与清晰度来保留或抽象细节。'),
-    h('p',null,'3. 改变颜色和波纹排列，导出 1200 像素宽 PNG 或可缩放 SVG。'),
-    h('p',null,'所有图像处理均在你的浏览器内完成。')
+  content:h('div',{className:'guide'},
+    h('p',null,'1. 上传 JPG、PNG 或 WebP 照片，也可以直接用内置示例。'),
+    h('p',null,'2. 字母与细节：明暗自动映射为字母 E 的笔画粗细，用密度、清晰度、粗细决定保留多少细节。'),
+    h('p',null,'3. 波纹与方向：开启波纹让排列产生流动感，可调方向、幅度、频率与字母朝向。'),
+    h('p',null,'4. 色彩表达：设定字母与背景颜色，或直接套用预设配色，也可反转明暗。'),
+    h('p',null,'5. 导出：选择质量（低 800px / 中 1200px / 高为原图尺寸）与格式（PNG 或可无限缩放的 SVG）。'),
+    h('p',{className:'guide-note'},'所有图像处理均在你的浏览器内完成，照片不会上传到任何服务器。')
   ),
   okText:'开始创作'
 });
