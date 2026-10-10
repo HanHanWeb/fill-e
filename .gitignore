@@ -1,0 +1,11 @@
+# 本地工具状态（含项目记忆日志，不入公开仓库）
+.workbuddy/
+.openai/
+
+# 依赖与构建产物
+node_modules/
+
+# 系统与编辑器
+.DS_Store
+Thumbs.db
+*.log
