@@ -206,7 +206,7 @@ const exportControls=h('div',{className:'export'},
 
 const controls=h('aside',{className:'controls'},
   h('div',{className:'controls-title'},h('span',{className:'controls-title-main'},h(Icon,{name:'sliders-horizontal',size:14}),'创作面板'),
-    h(Button,{size:'small',type:'text',onClick:()=>{setP({...defaults});setPreset(0);setView('生成作品');api.success('参数已重置')}},
+    h(Button,{size:'small',onClick:()=>{setP({...defaults});setPreset(0);setView('生成作品');api.success('参数已重置')}},
       h(Icon,{name:'rotate-ccw',size:13,style:{marginRight:4,verticalAlign:-2}}),'重置'
     )
   ),
