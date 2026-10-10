@@ -83,6 +83,8 @@ const openGuide=()=>antd.Modal.info({
   ),
   okText:'开始创作'
 });
+// 首次访问自动弹出使用说明；用 localStorage 记住已读，之后不再打扰。
+useEffect(()=>{let seen=false;try{seen=localStorage.getItem('fill-e-guide')==='1';if(!seen)localStorage.setItem('fill-e-guide','1')}catch(e){}if(!seen)openGuide()},[]);
 
 const preview=h('section',{className:'preview-panel'},
   h('div',{className:'panel-head'},
