@@ -85,10 +85,7 @@ const openGuide=()=>antd.Modal.info({
 const preview=h('section',{className:'preview-panel'},
   h('div',{className:'panel-head'},
     h('div',{className:'panel-title'},h(Icon,{name:'aperture',size:14}),'作品预览'),
-    h(Segmented,{options:[
-      {label:h('span',{className:'seg-label'},h(Icon,{name:'grid-3x3',size:13}),'生成作品'),value:'生成作品'},
-      {label:h('span',{className:'seg-label'},h(Icon,{name:'image',size:13}),'原始图片'),value:'原始图片'}
-    ],value:view,onChange:setView})
+    h(Segmented,{options:['生成作品','原始图片'],value:view,onChange:setView})
   ),
   h('div',{className:'canvas-area'},
     h('div',{className:'art-wrap',ref:wrap},
