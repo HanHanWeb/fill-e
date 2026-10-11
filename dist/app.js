@@ -1,6 +1,6 @@
 const h=React.createElement;
 const {useState,useEffect,useRef}=React;
-const {ConfigProvider,Button,Input,Slider,Segmented,Switch,ColorPicker,Tooltip,message}=antd;
+const {ConfigProvider,Button,Input,Slider,Segmented,Select,Switch,ColorPicker,Tooltip,message}=antd;
 const defaults={letter:'E',density:90,clarity:62,weight:75,wave:false,amplitude:16,frequency:35,direction:'horizontal',angle:0,fg:'#26351e',bg:'#f3f5df',invert:false,omitBackground:true,backgroundStrength:45,transparent:false};
 // 采样结果只跟图片与网格尺寸有关，缓存起来供后续参数微调复用（WeakMap 随图片释放）。
 const pixelCache=new WeakMap();

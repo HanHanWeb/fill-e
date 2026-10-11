@@ -10,11 +10,11 @@ h1{font-size:30px;letter-spacing:-1px;font-weight:600;margin:0 0 9px}
 .preview-panel,.controls{background:white;border:1px solid #e0e4db;border-radius:12px;overflow:hidden}
 .panel-head{height:61px;border-bottom:1px solid #edf0e9;display:flex;align-items:center;justify-content:space-between;padding:0 22px}
 .panel-title{font-size:13px;font-weight:600;display:flex;gap:8px;align-items:center}
-.canvas-area{background:#ebede8;display:flex;align-items:center;justify-content:center;position:relative;overflow:hidden}
+.canvas-area{background:#fbfdf7;display:flex;align-items:center;justify-content:center;position:relative;overflow:hidden}
 .canvas-area.empty{min-height:460px}
 .empty-hint{position:absolute;inset:0;display:flex;align-items:center;justify-content:center}
-.empty-card{display:flex;flex-direction:column;align-items:center;gap:4px;padding:34px 46px;border:1.5px dashed #ccd4bf;border-radius:12px;background:#f8faf4;transition:border-color .2s,background .2s,transform .2s}
-.canvas-area.empty:hover .empty-card{border-color:#8da566;background:#fbfdf7;transform:translateY(-1px)}
+.empty-card{display:flex;flex-direction:column;align-items:center;gap:4px;padding:34px 46px;transition:transform .2s}
+.canvas-area.empty:hover .empty-card{transform:translateY(-1px)}
 .empty-icon{color:#758660;margin-bottom:6px}
 .empty-title{font-size:15px;font-weight:600;color:#4a5240}
 .empty-sub{font-size:11.5px;color:#98a08e}
