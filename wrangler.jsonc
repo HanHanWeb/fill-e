@@ -1,8 +1,0 @@
-{
-  // Cloudflare Workers 静态资源部署：dist/ 为纯静态站点，无构建步骤
-  "name": "fill-letter",
-  "compatibility_date": "2026-10-11",
-  "assets": {
-    "directory": "./dist"
-  }
-}
