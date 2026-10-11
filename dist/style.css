@@ -11,20 +11,20 @@ h1{font-size:30px;letter-spacing:-1px;font-weight:600;margin:0 0 9px}
 .panel-head{height:61px;border-bottom:1px solid #edf0e9;display:flex;align-items:center;justify-content:space-between;padding:0 22px}
 .panel-title{font-size:13px;font-weight:600;display:flex;gap:8px;align-items:center}
 .canvas-area{background:#ebede8;display:flex;align-items:center;justify-content:center;position:relative;overflow:hidden}
+.canvas-area.empty{min-height:460px}
+.empty-hint{position:absolute;inset:0;display:flex;align-items:center;justify-content:center}
+.empty-card{display:flex;flex-direction:column;align-items:center;gap:4px;padding:34px 46px;border:1.5px dashed #ccd4bf;border-radius:12px;background:#f8faf4;transition:border-color .2s,background .2s,transform .2s}
+.canvas-area.empty:hover .empty-card{border-color:#8da566;background:#fbfdf7;transform:translateY(-1px)}
+.empty-icon{color:#758660;margin-bottom:6px}
+.empty-title{font-size:15px;font-weight:600;color:#4a5240}
+.empty-sub{font-size:11.5px;color:#98a08e}
+.empty-formats{font-size:10px;color:#b0b6a6;margin-top:3px;letter-spacing:.3px}
 .art-wrap{width:100%;position:relative;transition:width .2s}
-.art-wrap canvas{display:block;width:100%;height:auto}
+.art-wrap canvas{display:block;width:100%;height:auto;background:conic-gradient(#e3e6dd 0 25%,#fafbf7 0 50%,#e3e6dd 0 75%,#fafbf7 0) 0 0/16px 16px}
 .preview-foot{padding:14px 22px;display:flex;justify-content:space-between;font-size:11px;color:#89917f;border-top:1px solid #edf0e9}
 .controls-title{padding:21px 23px 15px;display:flex;align-items:center;justify-content:space-between;font-weight:600;font-size:14px}
 .control-section{padding:17px 23px;border-top:1px solid #eff1ec}
 .section-label{font-size:10px;font-weight:600;color:#949b88;letter-spacing:1.5px;margin-bottom:14px;display:flex;align-items:center;gap:6px}
-.upload-box{padding:19px 10px;background:#f8faf4;border:1px dashed #ccd4bf;border-radius:8px;text-align:center;cursor:pointer;display:block;transition:border .2s}
-.upload-box:hover{border-color:#759937}
-.upload-icon{font-size:24px;display:block;line-height:1.2;margin-bottom:7px;color:#758660}
-.upload-title{font-size:12px;font-weight:600}
-.upload-hint{font-size:10px;color:#98a08e;margin-top:6px}
-.file-row{display:flex;align-items:center;gap:10px;margin-top:13px}
-.file-row .ant-btn{margin-left:auto}
-.thumb{width:37px;height:37px;object-fit:cover;border-radius:5px}
 .field{margin-top:18px}
 .field:first-child{margin-top:0}
 .field-head{display:flex;justify-content:space-between;align-items:center;font-size:12px;margin-bottom:8px}
@@ -35,23 +35,8 @@ h1{font-size:30px;letter-spacing:-1px;font-weight:600;margin:0 0 9px}
 .color-field{flex:1}
 .color-field>span{display:flex;align-items:center;gap:6px;font-size:11px;color:#838c77;margin-bottom:8px}
 .swatch-label{display:flex;gap:7px;align-items:center;font-size:10px;color:#777f6e}
-.palette{display:flex;gap:8px;margin-top:14px}
-.palette button{border:1px solid #e0e5d7;cursor:pointer;width:28px;height:22px;border-radius:4px}
 .export{padding:18px 23px;border-top:1px solid #eff1ec}
 .export .ant-btn{font-weight:600}
-.presets{margin-top:22px}
-.preset-head{display:flex;align-items:center;margin-bottom:12px;font-size:12px;font-weight:600}
-.preset-title{display:inline-flex;align-items:center;gap:6px}
-.preset-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
-.preset-card{display:flex;align-items:center;gap:12px;padding:12px;background:white;border:1px solid #e1e5db;border-radius:8px;cursor:pointer;text-align:left;transition:all .2s}
-.preset-card:hover{border-color:#8da566;transform:translateY(-2px)}
-.preset-card:hover .preset-arrow{color:#759937;transform:translateX(2px)}
-.preset-card.active{border-color:#869f62;background:#fafcf6}
-.preset-arrow{margin-left:auto;color:#a9b199;flex:none;transition:transform .2s,color .2s}
-.preset-art{width:47px;height:48px;display:flex;align-items:center;justify-content:center;font-family:monospace;font-size:9px;line-height:8px;letter-spacing:1px;white-space:pre;overflow:hidden}
-.preset-info{flex:1;min-width:0}
-.preset-info b{font-size:11px;font-weight:500;display:block}
-.preset-info small{display:block;font-size:9px;color:#98a08f;margin-top:4px}
 .ant-segmented{font-size:11px}
 .ant-btn-default{box-shadow:none}
 .ant-slider-rail{background:#e9ede2!important}
@@ -63,11 +48,9 @@ h1{font-size:30px;letter-spacing:-1px;font-weight:600;margin:0 0 9px}
 .preview-foot>span{display:inline-flex;align-items:center}
 .seg-label{display:inline-flex;align-items:center;gap:5px}
 .field-label{display:inline-flex;align-items:center;gap:6px}
-.field-label>svg,.section-label>svg,.panel-title>svg,.preset-title>svg,.controls-title-main>svg{color:#8d9682;flex:none}
+.field-label>svg,.section-label>svg,.panel-title>svg,.controls-title-main>svg{color:#8d9682;flex:none}
 .controls-title-main{display:inline-flex;align-items:center;gap:8px}
 .export .ant-btn,.controls-title .ant-btn{display:inline-flex;align-items:center;justify-content:center}
-.quality-seg .ant-segmented-item-label{display:flex;align-items:center;justify-content:center;padding:3px 0}
-.quality-seg .seg-label{justify-content:center;gap:4px}
 .ant-select-item-option-content .seg-label{justify-content:flex-start}
 .guide p{margin:0 0 10px;font-size:13px;line-height:1.7;color:#4a5240}
 .guide p:last-child{margin-bottom:0}
@@ -77,7 +60,6 @@ h1{font-size:30px;letter-spacing:-1px;font-weight:600;margin:0 0 9px}
 .main{padding:25px 20px}
 .workspace{grid-template-columns:minmax(0,1fr) 290px}
 .control-section{padding:16px 18px}
-.preset-card{gap:7px;padding:9px}
 }
 
 @media(max-width:760px){
@@ -89,14 +71,6 @@ h1{font-size:22px}
 .intro p{font-size:12px}
 .panel-head{height:52px;padding:0 14px}
 .preview-foot{flex-wrap:wrap;gap:6px 14px;font-size:10px;padding:11px 14px}
-.presets{margin-top:14px}
-.preset-head{margin-bottom:9px}
-.preset-grid{display:flex;gap:10px;overflow-x:auto;padding:2px 2px 10px;scroll-snap-type:x proximity;-webkit-overflow-scrolling:touch;scrollbar-width:none}
-.preset-grid::-webkit-scrollbar{display:none}
-.preset-card{flex:0 0 172px;scroll-snap-align:start;gap:9px;padding:10px}
-.preset-card:hover{transform:none}
-.preset-art{width:40px;height:42px}
-.preset-info small{line-height:1.5}
 .palette button{width:32px;height:30px}
 .control-section{padding:15px 16px}
 .controls-title{padding:17px 16px 12px}

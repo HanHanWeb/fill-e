@@ -21,9 +21,30 @@ function detectBackground(pixels,width,height,strength){
   // 只取占比最高的边缘色簇，避免前景色被误判为背景。
   const palette=[ranked[0].color];
   const tolerance=12+Math.max(0,Math.min(100,strength))*.9,threshold=tolerance*tolerance*3;
+  // 内容色保护：泛洪会顺着柔和的抗锯齿边缘渗入大片浅色图形（浅色 Logo 被整体省略）。
+  // 对容差内的像素按颜色分桶，占比≥1.5% 且与背景明显不同的桶视为内容色，这些颜色的格子一律不省略。
+  const Q=8,bins=new Map();
+  for(let i=0;i<count;i++){
+    const c=rgb(i);
+    if(distance(c,palette[0])>threshold)continue;
+    const key=((c[0]/Q)|0)+','+((c[1]/Q)|0)+','+((c[2]/Q)|0);
+    let b=bins.get(key);
+    if(!b){b={n:0,r:0,g:0,b:0};bins.set(key,b)}
+    b.n++;b.r+=c[0];b.g+=c[1];b.b+=c[2];
+  }
+  const guards=[];
+  for(const b of bins.values()){
+    if(b.n<count*.015)continue;
+    const k=[b.r/b.n,b.g/b.n,b.b/b.n];
+    if(distance(k,palette[0])>900)guards.push(k);
+  }
   const eligible=new Uint8Array(count);
   for(let i=0;i<count;i++){
-    const c=rgb(i);if(Math.min(...palette.map(k=>distance(c,k)))>threshold)continue;
+    const c=rgb(i);const dBg=Math.min(...palette.map(k=>distance(c,k)));
+    if(dBg>threshold)continue;
+    let guarded=false;
+    for(const k of guards)if(distance(c,k)<dBg){guarded=true;break}
+    if(guarded)continue;
     const x=i%width,y=Math.floor(i/width);let detail=0,n=0;
     for(const j of [x>0?i-1:-1,x<width-1?i+1:-1,y>0?i-width:-1,y<height-1?i+width:-1])if(j>=0){detail+=Math.sqrt(distance(c,rgb(j))/3);n++}
     if(detail/Math.max(1,n)<14+strength*.35)eligible[i]=1;

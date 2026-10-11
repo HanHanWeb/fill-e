@@ -1,5 +1,0 @@
-E glyph outlines: Alibaba PuHuiTi 3.0, Version 3.01.
-Copyright © 2020-2023 Alibaba (China) Co., Ltd. All rights reserved.
-Manufacturer: Alibaba Design; Hanyi Fonts.
-Source: https://cdn.jsdelivr.net/npm/@fontpkg/alibaba-pu-hui-ti-3-0@3.1.2/
-The application interpolates nine original E outlines for brightness-dependent rendering.
